@@ -11,7 +11,7 @@ const PROJECTS = [
     live: "https://brew-co-landing.vercel.app",
     github: "https://github.com/Rahul-hzb/brew-co-landing",
     color: "#c8a96e",
-    bg: "#f0fdf9",
+    bg: "rgba(200,169,110,0.06)",
     emoji: "☕",
   },
   {
@@ -20,10 +20,10 @@ const PROJECTS = [
     subtitle: "Task Manager App",
     desc: "A clean, minimal task manager with add, complete, and delete features. Includes filter tabs, progress tracking, and persistent localStorage support.",
     tags: ["React", "JavaScript", "LocalStorage"],
-    live: "https://task-manager-app-pf93.vercel.app",
+    live: "https://task-manager-app.vercel.app",
     github: "https://github.com/Rahul-hzb/task-manager-app",
     color: "#2dd4bf",
-    bg: "#f0fdf9",
+    bg: "rgba(45,212,191,0.06)",
     emoji: "✅",
   },
   {
@@ -32,10 +32,10 @@ const PROJECTS = [
     subtitle: "Live Weather App",
     desc: "A real-time weather app powered by OpenWeatherMap API. Search any city, see live data including temperature, humidity, wind, and a 5-day forecast.",
     tags: ["React", "API", "JavaScript"],
-    live: "https://weather-app-zh74.vercel.app",
+    live: "https://weather-app.vercel.app",
     github: "https://github.com/Rahul-hzb/weather-app",
     color: "#38bdf8",
-    bg: "#f0f9ff",
+    bg: "rgba(56,189,248,0.06)",
     emoji: "🌤️",
   },
 ];
@@ -358,91 +358,45 @@ export default function Portfolio() {
 
   return (
     <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-      />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
       <div style={{ fontFamily: "'Poppins', sans-serif", overflowX: "hidden" }}>
+
         {/* ── NAVBAR ── */}
-        <nav
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            zIndex: 1000,
-            padding: "0 2rem",
-            height: 64,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            background: navScrolled ? "rgba(10,12,20,0.92)" : "transparent",
-            backdropFilter: navScrolled ? "blur(16px)" : "none",
-            borderBottom: navScrolled
-              ? "0.5px solid rgba(255,255,255,0.08)"
-              : "none",
-            boxShadow: navScrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
-            transition: "all 0.4s ease",
-          }}
-        >
-          <div
-            style={{
-              fontSize: 20,
-              fontWeight: 800,
-              color: "#fff",
-              letterSpacing: "-0.02em",
-            }}
-          >
+        <nav style={{
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+          padding: "0 2rem", height: 64,
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          background: navScrolled ? "rgba(10,12,20,0.92)" : "transparent",
+          backdropFilter: navScrolled ? "blur(16px)" : "none",
+          borderBottom: navScrolled ? "0.5px solid rgba(255,255,255,0.08)" : "none",
+          boxShadow: navScrolled ? "0 4px 30px rgba(0,0,0,0.3)" : "none",
+          transition: "all 0.4s ease",
+        }}>
+          <div style={{ fontSize: 20, fontWeight: 800, color: "#fff", letterSpacing: "-0.02em" }}>
             Rahul<span style={{ color: "#3b82f6" }}>.</span>
           </div>
 
           {/* Desktop nav */}
-          <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollTo(item.toLowerCase())}
+          <div className="desktop-nav-links" style={{ display: "flex", gap: 32, alignItems: "center" }}>
+            {NAV_ITEMS.map(item => (
+              <button key={item} onClick={() => scrollTo(item.toLowerCase())}
                 style={{
-                  background: "none",
-                  border: "none",
-                  color: "#94a3b8",
-                  fontSize: 14,
-                  fontWeight: 500,
-                  cursor: "pointer",
-                  fontFamily: "inherit",
-                  transition: "color 0.2s",
-                  letterSpacing: "0.02em",
+                  background: "none", border: "none", color: "#94a3b8", fontSize: 14,
+                  fontWeight: 500, cursor: "pointer", fontFamily: "inherit",
+                  transition: "color 0.2s", letterSpacing: "0.02em",
                 }}
-                onMouseOver={(e) => (e.target.style.color = "#fff")}
-                onMouseOut={(e) => (e.target.style.color = "#94a3b8")}
-              >
-                {item}
-              </button>
+                onMouseOver={e => e.target.style.color = "#fff"}
+                onMouseOut={e => e.target.style.color = "#94a3b8"}
+              >{item}</button>
             ))}
-            <button
-              onClick={() => scrollTo("contact")}
-              style={{
-                background: "#3b82f6",
-                border: "none",
-                color: "#fff",
-                padding: "9px 22px",
-                borderRadius: 10,
-                fontSize: 13,
-                fontWeight: 600,
-                cursor: "pointer",
-                fontFamily: "inherit",
-                transition: "all 0.2s",
-                letterSpacing: "0.02em",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.background = "#2563eb";
-                e.target.style.transform = "scale(1.04)";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.background = "#3b82f6";
-                e.target.style.transform = "scale(1)";
-              }}
+            <button onClick={() => scrollTo("contact")} style={{
+              background: "#3b82f6", border: "none", color: "#fff", padding: "9px 22px",
+              borderRadius: 10, fontSize: 13, fontWeight: 600, cursor: "pointer",
+              fontFamily: "inherit", transition: "all 0.2s", letterSpacing: "0.02em",
+            }}
+              onMouseOver={e => { e.target.style.background = "#2563eb"; e.target.style.transform = "scale(1.04)"; }}
+              onMouseOut={e => { e.target.style.background = "#3b82f6"; e.target.style.transform = "scale(1)"; }}
             >
               Hire Me
             </button>
@@ -450,332 +404,136 @@ export default function Portfolio() {
         </nav>
 
         {/* ── HERO ── */}
-        <section
-          style={{
-            minHeight: "100vh",
-            background: "#0a0c14",
-            display: "flex",
-            alignItems: "center",
-            padding: "6rem 2rem 4rem",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
+        <section style={{
+          minHeight: "100vh", background: "#0a0c14",
+          display: "flex", alignItems: "center",
+          padding: "6rem 2rem 4rem",
+          position: "relative", overflow: "hidden",
+        }}>
           {/* Animated background blobs */}
-          <div
-            style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: "10%",
-                left: "5%",
-                width: 400,
-                height: 400,
-                borderRadius: "50%",
-                background: "rgba(59,130,246,0.08)",
-                filter: "blur(80px)",
-                animation: "blob1 8s ease-in-out infinite",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: "10%",
-                right: "5%",
-                width: 350,
-                height: 350,
-                borderRadius: "50%",
-                background: "rgba(99,102,241,0.06)",
-                filter: "blur(80px)",
-                animation: "blob2 10s ease-in-out infinite",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                width: 300,
-                height: 300,
-                borderRadius: "50%",
-                background: "rgba(59,130,246,0.04)",
-                filter: "blur(60px)",
-                animation: "blob3 12s ease-in-out infinite",
-              }}
-            />
+          <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+            <div style={{
+              position: "absolute", top: "10%", left: "5%", width: 400, height: 400,
+              borderRadius: "50%", background: "rgba(59,130,246,0.08)", filter: "blur(80px)",
+              animation: "blob1 8s ease-in-out infinite",
+            }} />
+            <div style={{
+              position: "absolute", bottom: "10%", right: "5%", width: 350, height: 350,
+              borderRadius: "50%", background: "rgba(99,102,241,0.06)", filter: "blur(80px)",
+              animation: "blob2 10s ease-in-out infinite",
+            }} />
+            <div style={{
+              position: "absolute", top: "50%", left: "50%", width: 300, height: 300,
+              borderRadius: "50%", background: "rgba(59,130,246,0.04)", filter: "blur(60px)",
+              animation: "blob3 12s ease-in-out infinite",
+            }} />
             {/* Grid */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage:
-                  "radial-gradient(rgba(59,130,246,0.08) 1px, transparent 1px)",
-                backgroundSize: "40px 40px",
-              }}
-            />
+            <div style={{
+              position: "absolute", inset: 0,
+              backgroundImage: "radial-gradient(rgba(59,130,246,0.08) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }} />
           </div>
 
-          <div
-            style={{
-              maxWidth: 1200,
-              margin: "0 auto",
-              width: "100%",
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 64,
-              alignItems: "center",
-              position: "relative",
-              zIndex: 1,
-            }}
-          >
+          <div className="hero-grid" style={{
+            maxWidth: 1200, margin: "0 auto", width: "100%",
+            display: "grid", gridTemplateColumns: "1fr 1fr",
+            gap: 64, alignItems: "center", position: "relative", zIndex: 1,
+          }}>
             {/* Left — text */}
             <div style={{ animation: "heroLeft 1s ease both" }}>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  background: "rgba(59,130,246,0.1)",
-                  border: "1px solid rgba(59,130,246,0.2)",
-                  borderRadius: 99,
-                  padding: "6px 16px",
-                  marginBottom: 24,
-                }}
-              >
-                <span
-                  style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    background: "#22c55e",
-                    display: "inline-block",
-                    animation: "pulse 2s infinite",
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: 12,
-                    color: "#60a5fa",
-                    fontWeight: 500,
-                    letterSpacing: "0.08em",
-                  }}
-                >
-                  Available for freelance work
-                </span>
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)",
+                borderRadius: 99, padding: "6px 16px", marginBottom: 24,
+              }}>
+                <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite" }} />
+                <span style={{ fontSize: 12, color: "#60a5fa", fontWeight: 500, letterSpacing: "0.08em" }}>Available for freelance work</span>
               </div>
 
-              <h1
-                style={{
-                  fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                  fontWeight: 800,
-                  color: "#fff",
-                  lineHeight: 1.1,
-                  margin: "0 0 16px",
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                Hi, I'm
-                <br />
+              <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 800, color: "#fff", lineHeight: 1.1, margin: "0 0 16px", letterSpacing: "-0.03em" }}>
+                Hi, I'm<br />
                 <span style={{ color: "#3b82f6" }}>Rahul Prasad</span>
               </h1>
 
-              <div
-                style={{
-                  fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)",
-                  color: "#94a3b8",
-                  fontWeight: 400,
-                  marginBottom: 16,
-                  minHeight: 40,
-                }}
-              >
-                I'm a{" "}
-                <span style={{ color: "#60a5fa", fontWeight: 600 }}>
-                  {typed}
-                </span>
-                <span
-                  style={{ color: "#3b82f6", animation: "blink 1s infinite" }}
-                >
-                  |
-                </span>
+              <div style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", color: "#94a3b8", fontWeight: 400, marginBottom: 16, minHeight: 40 }}>
+                I'm a <span style={{ color: "#60a5fa", fontWeight: 600 }}>{typed}</span>
+                <span style={{ color: "#3b82f6", animation: "blink 1s infinite" }}>|</span>
               </div>
 
-              <p
-                style={{
-                  fontSize: 16,
-                  color: "#64748b",
-                  lineHeight: 1.8,
-                  marginBottom: 40,
-                  maxWidth: 480,
-                }}
-              >
-                I build clean, mobile-friendly websites for small businesses
-                that want to grow online. Fast, responsive, and built with
-                modern technology.
+              <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.8, marginBottom: 40, maxWidth: 480 }}>
+                I build clean, mobile-friendly websites for small businesses that want to grow online. Fast, responsive, and built with modern technology.
               </p>
 
-              <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-                <button
-                  onClick={() => scrollTo("projects")}
-                  style={{
-                    background: "#3b82f6",
-                    border: "none",
-                    color: "#fff",
-                    padding: "14px 32px",
-                    borderRadius: 12,
-                    fontSize: 15,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    transition: "all 0.3s",
-                    boxShadow: "0 0 30px rgba(59,130,246,0.3)",
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.transform = "translateY(-2px)";
-                    e.target.style.boxShadow = "0 0 40px rgba(59,130,246,0.5)";
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.transform = "translateY(0)";
-                    e.target.style.boxShadow = "0 0 30px rgba(59,130,246,0.3)";
-                  }}
+              <div className="hero-buttons" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+                <button onClick={() => scrollTo("projects")} style={{
+                  background: "#3b82f6", border: "none", color: "#fff",
+                  padding: "14px 32px", borderRadius: 12, fontSize: 15, fontWeight: 600,
+                  cursor: "pointer", fontFamily: "inherit", transition: "all 0.3s",
+                  boxShadow: "0 0 30px rgba(59,130,246,0.3)",
+                }}
+                  onMouseOver={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 0 40px rgba(59,130,246,0.5)"; }}
+                  onMouseOut={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "0 0 30px rgba(59,130,246,0.3)"; }}
                 >
                   View My Work →
                 </button>
-                <button
-                  onClick={() => scrollTo("contact")}
-                  style={{
-                    background: "transparent",
-                    border: "1.5px solid rgba(255,255,255,0.15)",
-                    color: "#94a3b8",
-                    padding: "14px 32px",
-                    borderRadius: 12,
-                    fontSize: 15,
-                    fontWeight: 500,
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    transition: "all 0.3s",
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.borderColor = "rgba(255,255,255,0.4)";
-                    e.target.style.color = "#fff";
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.borderColor = "rgba(255,255,255,0.15)";
-                    e.target.style.color = "#94a3b8";
-                  }}
+                <button onClick={() => scrollTo("contact")} style={{
+                  background: "transparent", border: "1.5px solid rgba(255,255,255,0.15)",
+                  color: "#94a3b8", padding: "14px 32px", borderRadius: 12, fontSize: 15,
+                  fontWeight: 500, cursor: "pointer", fontFamily: "inherit", transition: "all 0.3s",
+                }}
+                  onMouseOver={e => { e.target.style.borderColor = "rgba(255,255,255,0.4)"; e.target.style.color = "#fff"; }}
+                  onMouseOut={e => { e.target.style.borderColor = "rgba(255,255,255,0.15)"; e.target.style.color = "#94a3b8"; }}
                 >
                   Contact Me
                 </button>
               </div>
 
               {/* Social links */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: 16,
-                  marginTop: 40,
-                  alignItems: "center",
+              <div className="hero-social" style={{ display: "flex", gap: 16, marginTop: 40, alignItems: "center" }}>
+                <a href="https://github.com/Rahul-hzb" target="_blank" rel="noopener noreferrer" style={{
+                  display: "flex", alignItems: "center", gap: 8, color: "#64748b",
+                  textDecoration: "none", fontSize: 13, fontWeight: 500, transition: "color 0.2s",
                 }}
-              >
-                <a
-                  href="https://github.com/Rahul-hzb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    color: "#64748b",
-                    textDecoration: "none",
-                    fontSize: 13,
-                    fontWeight: 500,
-                    transition: "color 0.2s",
-                  }}
-                  onMouseOver={(e) => (e.currentTarget.style.color = "#fff")}
-                  onMouseOut={(e) => (e.currentTarget.style.color = "#64748b")}
+                  onMouseOver={e => e.currentTarget.style.color = "#fff"}
+                  onMouseOut={e => e.currentTarget.style.color = "#64748b"}
                 >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
                   GitHub
                 </a>
                 <span style={{ color: "#1e293b" }}>·</span>
-                <a
-                  href="mailto:prasadrahul0612@gmail.com"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                    color: "#64748b",
-                    textDecoration: "none",
-                    fontSize: 13,
-                    fontWeight: 500,
-                    transition: "color 0.2s",
-                  }}
-                  onMouseOver={(e) => (e.currentTarget.style.color = "#fff")}
-                  onMouseOut={(e) => (e.currentTarget.style.color = "#64748b")}
+                <a href="mailto:prasadrahul0612@gmail.com" style={{
+                  display: "flex", alignItems: "center", gap: 8, color: "#64748b",
+                  textDecoration: "none", fontSize: 13, fontWeight: 500, transition: "color 0.2s",
+                }}
+                  onMouseOver={e => e.currentTarget.style.color = "#fff"}
+                  onMouseOut={e => e.currentTarget.style.color = "#64748b"}
                 >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  >
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                   Email
                 </a>
               </div>
             </div>
 
             {/* Right — illustration */}
-            <div
-              style={{
-                animation: "heroRight 1s ease 0.3s both",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: "min(420px, 90vw)",
-                  height: "min(420px, 90vw)",
-                  position: "relative",
-                }}
-              >
+            <div className="hero-illustration" style={{ animation: "heroRight 1s ease 0.3s both", display: "flex", justifyContent: "center" }}>
+              <div style={{
+                width: "min(420px, 90vw)", height: "min(420px, 90vw)",
+                position: "relative",
+              }}>
                 {/* Glow ring */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: -20,
-                    borderRadius: "50%",
-                    background:
-                      "conic-gradient(from 0deg, #3b82f6, #6366f1, #3b82f6)",
-                    opacity: 0.15,
-                    filter: "blur(20px)",
-                    animation: "spin 8s linear infinite",
-                  }}
-                />
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: "50%",
-                    overflow: "hidden",
-                    border: "2px solid rgba(59,130,246,0.3)",
-                    boxShadow: "0 0 60px rgba(59,130,246,0.2)",
-                  }}
-                >
+                <div style={{
+                  position: "absolute", inset: -20, borderRadius: "50%",
+                  background: "conic-gradient(from 0deg, #3b82f6, #6366f1, #3b82f6)",
+                  opacity: 0.15, filter: "blur(20px)",
+                  animation: "spin 8s linear infinite",
+                }} />
+                <div style={{
+                  position: "relative", width: "100%", height: "100%",
+                  borderRadius: "50%", overflow: "hidden",
+                  border: "2px solid rgba(59,130,246,0.3)",
+                  boxShadow: "0 0 60px rgba(59,130,246,0.2)",
+                }}>
                   <DeveloperIllustration />
                 </div>
               </div>
@@ -783,214 +541,64 @@ export default function Portfolio() {
           </div>
 
           {/* Scroll indicator */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: 32,
-              left: "50%",
-              transform: "translateX(-50%)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 8,
-              animation: "bounce 2s infinite",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 11,
-                color: "#334155",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-              }}
-            >
-              scroll
-            </span>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#334155"
-              strokeWidth="2"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
+          <div style={{
+            position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)",
+            display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
+            animation: "bounce 2s infinite",
+          }}>
+            <span style={{ fontSize: 11, color: "#334155", letterSpacing: "0.15em", textTransform: "uppercase" }}>scroll</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" strokeWidth="2"><polyline points="6 9 12 15 18 9" /></svg>
           </div>
         </section>
 
         {/* ── ABOUT ── */}
-        <section
-          id="about"
-          style={{ background: "#0d1117", padding: "6rem 2rem" }}
-        >
+        <section id="about" style={{ background: "#0d1117", padding: "6rem 2rem" }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <FadeUp>
               <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-                <div
-                  style={{
-                    fontSize: 12,
-                    letterSpacing: "0.3em",
-                    textTransform: "uppercase",
-                    color: "#3b82f6",
-                    marginBottom: 12,
-                    fontWeight: 600,
-                  }}
-                >
-                  Who I Am
-                </div>
-                <h2
-                  style={{
-                    fontSize: "clamp(2rem, 4vw, 3rem)",
-                    fontWeight: 800,
-                    color: "#fff",
-                    margin: 0,
-                    letterSpacing: "-0.02em",
-                  }}
-                >
+                <div style={{ fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#3b82f6", marginBottom: 12, fontWeight: 600 }}>Who I Am</div>
+                <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, color: "#fff", margin: 0, letterSpacing: "-0.02em" }}>
                   About <span style={{ color: "#3b82f6" }}>Me</span>
                 </h2>
               </div>
             </FadeUp>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 48,
-                alignItems: "center",
-              }}
-            >
+            <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
               <FadeUp delay={0.1}>
-                <p
-                  style={{
-                    fontSize: 16,
-                    color: "#94a3b8",
-                    lineHeight: 1.9,
-                    marginBottom: 20,
-                  }}
-                >
-                  I'm a{" "}
-                  <strong style={{ color: "#fff" }}>frontend developer</strong>{" "}
-                  who loves turning ideas into beautiful, fast websites. I work
-                  with small businesses to help them build a strong online
-                  presence.
+                <p style={{ fontSize: 16, color: "#94a3b8", lineHeight: 1.9, marginBottom: 20 }}>
+                  I'm a <strong style={{ color: "#fff" }}>frontend developer</strong> who loves turning ideas into beautiful, fast websites. I work with small businesses to help them build a strong online presence.
                 </p>
-                <p
-                  style={{
-                    fontSize: 16,
-                    color: "#94a3b8",
-                    lineHeight: 1.9,
-                    marginBottom: 32,
-                  }}
-                >
-                  I focus on{" "}
-                  <strong style={{ color: "#fff" }}>clean design</strong>,
-                  smooth user experience, and code that works perfectly on every
-                  device — from phones to desktops.
+                <p style={{ fontSize: 16, color: "#94a3b8", lineHeight: 1.9, marginBottom: 32 }}>
+                  I focus on <strong style={{ color: "#fff" }}>clean design</strong>, smooth user experience, and code that works perfectly on every device — from phones to desktops.
                 </p>
                 <div style={{ display: "flex", gap: 32 }}>
-                  {[
-                    ["3+", "Projects Built"],
-                    ["100%", "Client Focus"],
-                    ["Fast", "Delivery"],
-                  ].map(([num, label]) => (
+                  {[["3+", "Projects Built"], ["100%", "Client Focus"], ["Fast", "Delivery"]].map(([num, label]) => (
                     <div key={label} style={{ textAlign: "center" }}>
-                      <div
-                        style={{
-                          fontSize: 26,
-                          fontWeight: 800,
-                          color: "#3b82f6",
-                        }}
-                      >
-                        {num}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 11,
-                          color: "#475569",
-                          letterSpacing: "0.1em",
-                          textTransform: "uppercase",
-                          marginTop: 4,
-                        }}
-                      >
-                        {label}
-                      </div>
+                      <div style={{ fontSize: 26, fontWeight: 800, color: "#3b82f6" }}>{num}</div>
+                      <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 4 }}>{label}</div>
                     </div>
                   ))}
                 </div>
               </FadeUp>
 
               <FadeUp delay={0.2}>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: 16,
-                  }}
-                >
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                   {[
-                    {
-                      icon: "🎯",
-                      title: "Goal-Focused",
-                      desc: "Every line of code serves a purpose",
-                    },
-                    {
-                      icon: "📱",
-                      title: "Mobile First",
-                      desc: "Looks perfect on every screen size",
-                    },
-                    {
-                      icon: "⚡",
-                      title: "Fast Delivery",
-                      desc: "Quick turnaround without cutting corners",
-                    },
-                    {
-                      icon: "💬",
-                      title: "Clear Comms",
-                      desc: "Always responsive and transparent",
-                    },
+                    { icon: "🎯", title: "Goal-Focused", desc: "Every line of code serves a purpose" },
+                    { icon: "📱", title: "Mobile First", desc: "Looks perfect on every screen size" },
+                    { icon: "⚡", title: "Fast Delivery", desc: "Quick turnaround without cutting corners" },
+                    { icon: "💬", title: "Clear Comms", desc: "Always responsive and transparent" },
                   ].map(({ icon, title, desc }) => (
-                    <div
-                      key={title}
-                      style={{
-                        background: "#161b27",
-                        border: "0.5px solid rgba(255,255,255,0.06)",
-                        borderRadius: 16,
-                        padding: "1.25rem",
-                        transition: "border-color 0.2s",
-                      }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style.borderColor =
-                          "rgba(59,130,246,0.3)")
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.style.borderColor =
-                          "rgba(255,255,255,0.06)")
-                      }
+                    <div key={title} style={{
+                      background: "#161b27", border: "0.5px solid rgba(255,255,255,0.06)",
+                      borderRadius: 16, padding: "1.25rem", transition: "border-color 0.2s",
+                    }}
+                      onMouseOver={e => e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)"}
+                      onMouseOut={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"}
                     >
-                      <div style={{ fontSize: 24, marginBottom: 8 }}>
-                        {icon}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 14,
-                          fontWeight: 600,
-                          color: "#e2e8f0",
-                          marginBottom: 4,
-                        }}
-                      >
-                        {title}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 12,
-                          color: "#475569",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {desc}
-                      </div>
+                      <div style={{ fontSize: 24, marginBottom: 8 }}>{icon}</div>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: "#e2e8f0", marginBottom: 4 }}>{title}</div>
+                      <div style={{ fontSize: 12, color: "#475569", lineHeight: 1.5 }}>{desc}</div>
                     </div>
                   ))}
                 </div>
@@ -1000,123 +608,43 @@ export default function Portfolio() {
         </section>
 
         {/* ── SKILLS ── */}
-        <section
-          id="skills"
-          style={{ background: "#080c14", padding: "6rem 2rem" }}
-        >
+        <section id="skills" style={{ background: "#080c14", padding: "6rem 2rem" }}>
           <div style={{ maxWidth: 900, margin: "0 auto" }}>
             <FadeUp>
               <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-                <div
-                  style={{
-                    fontSize: 12,
-                    letterSpacing: "0.3em",
-                    textTransform: "uppercase",
-                    color: "#3b82f6",
-                    marginBottom: 12,
-                    fontWeight: 600,
-                  }}
-                >
-                  What I Know
-                </div>
-                <h2
-                  style={{
-                    fontSize: "clamp(2rem, 4vw, 3rem)",
-                    fontWeight: 800,
-                    color: "#fff",
-                    margin: 0,
-                    letterSpacing: "-0.02em",
-                  }}
-                >
+                <div style={{ fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#3b82f6", marginBottom: 12, fontWeight: 600 }}>What I Know</div>
+                <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, color: "#fff", margin: 0, letterSpacing: "-0.02em" }}>
                   My <span style={{ color: "#3b82f6" }}>Skills</span>
                 </h2>
               </div>
             </FadeUp>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: 20,
-              }}
-            >
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
               {SKILLS.map((skill, i) => (
                 <FadeUp key={skill.name} delay={i * 0.1}>
-                  <div
-                    style={{
-                      background: "#111827",
-                      border: "0.5px solid rgba(255,255,255,0.06)",
-                      borderRadius: 16,
-                      padding: "1.5rem",
-                      transition: "all 0.3s",
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.borderColor =
-                        "rgba(59,130,246,0.4)";
-                      e.currentTarget.style.transform = "translateY(-4px)";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.borderColor =
-                        "rgba(255,255,255,0.06)";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }}
+                  <div style={{
+                    background: "#111827", border: "0.5px solid rgba(255,255,255,0.06)",
+                    borderRadius: 16, padding: "1.5rem", transition: "all 0.3s",
+                  }}
+                    onMouseOver={e => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.4)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                    onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; e.currentTarget.style.transform = "translateY(0)"; }}
                   >
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        marginBottom: 12,
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 10,
-                        }}
-                      >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                         <span style={{ fontSize: 24 }}>{skill.icon}</span>
-                        <span
-                          style={{
-                            fontSize: 15,
-                            fontWeight: 600,
-                            color: "#e2e8f0",
-                          }}
-                        >
-                          {skill.name}
-                        </span>
+                        <span style={{ fontSize: 15, fontWeight: 600, color: "#e2e8f0" }}>{skill.name}</span>
                       </div>
-                      <span
-                        style={{
-                          fontSize: 13,
-                          color: "#3b82f6",
-                          fontWeight: 600,
-                        }}
-                      >
-                        {skill.level}%
-                      </span>
+                      <span style={{ fontSize: 13, color: "#3b82f6", fontWeight: 600 }}>{skill.level}%</span>
                     </div>
                     {/* Progress bar */}
-                    <div
-                      style={{
-                        height: 4,
-                        background: "#1e293b",
-                        borderRadius: 99,
-                        overflow: "hidden",
-                      }}
-                    >
-                      <div
-                        style={{
-                          height: "100%",
-                          borderRadius: 99,
-                          background:
-                            "linear-gradient(90deg, #3b82f6, #60a5fa)",
-                          width: `${skill.level}%`,
-                          transition: "width 1.5s ease",
-                          boxShadow: "0 0 10px rgba(59,130,246,0.5)",
-                        }}
-                      />
+                    <div style={{ height: 4, background: "#1e293b", borderRadius: 99, overflow: "hidden" }}>
+                      <div style={{
+                        height: "100%", borderRadius: 99,
+                        background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+                        width: `${skill.level}%`,
+                        transition: "width 1.5s ease",
+                        boxShadow: "0 0 10px rgba(59,130,246,0.5)",
+                      }} />
                     </div>
                   </div>
                 </FadeUp>
@@ -1126,57 +654,21 @@ export default function Portfolio() {
         </section>
 
         {/* ── PROJECTS ── */}
-        <section
-          id="projects"
-          style={{ background: "# #0B1120", padding: "6rem 2rem" }}
-        >
+        <section id="projects" style={{ background: "#0a0f1a", padding: "6rem 2rem" }}>
           <div style={{ maxWidth: 1100, margin: "0 auto" }}>
             <FadeUp>
               <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-                <div
-                  style={{
-                    fontSize: 12,
-                    letterSpacing: "0.3em",
-                    textTransform: "uppercase",
-                    color: "#3b82f6",
-                    marginBottom: 12,
-                    fontWeight: 600,
-                  }}
-                >
-                  What I've Built
-                </div>
-                <h2
-                  style={{
-                    fontSize: "clamp(2rem, 4vw, 3rem)",
-                    fontWeight: 800,
-                    color: "#3b82f6",
-                    margin: "0 0 16px",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
+                <div style={{ fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#3b82f6", marginBottom: 12, fontWeight: 600 }}>What I've Built</div>
+                <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, color: "#fff", margin: "0 0 16px", letterSpacing: "-0.02em" }}>
                   My <span style={{ color: "#3b82f6" }}>Projects</span>
                 </h2>
-                <p
-                  style={{
-                    fontSize: 16,
-                    color: "#64748b",
-                    maxWidth: 500,
-                    margin: "0 auto",
-                  }}
-                >
-                  Real projects built from scratch — each one demonstrating a
-                  different skill set.
+                <p style={{ fontSize: 16, color: "#64748b", maxWidth: 500, margin: "0 auto" }}>
+                  Real projects built from scratch — each one demonstrating a different skill set.
                 </p>
               </div>
             </FadeUp>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: 24,
-              }}
-            >
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
               {PROJECTS.map((project, i) => (
                 <ProjectCard key={project.id} project={project} index={i} />
               ))}
@@ -1185,165 +677,54 @@ export default function Portfolio() {
         </section>
 
         {/* ── CONTACT ── */}
-        <section
-          id="contact"
-          style={{ background: "#0a0c14", padding: "6rem 2rem" }}
-        >
+        <section id="contact" style={{ background: "#0a0c14", padding: "6rem 2rem" }}>
           <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
             <FadeUp>
-              <div
-                style={{
-                  fontSize: 12,
-                  letterSpacing: "0.3em",
-                  textTransform: "uppercase",
-                  color: "#3b82f6",
-                  marginBottom: 12,
-                  fontWeight: 600,
-                }}
-              >
-                Get In Touch
-              </div>
-              <h2
-                style={{
-                  fontSize: "clamp(2rem, 4vw, 3rem)",
-                  fontWeight: 800,
-                  color: "#fff",
-                  margin: "0 0 16px",
-                  letterSpacing: "-0.02em",
-                }}
-              >
+              <div style={{ fontSize: 12, letterSpacing: "0.3em", textTransform: "uppercase", color: "#3b82f6", marginBottom: 12, fontWeight: 600 }}>Get In Touch</div>
+              <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, color: "#fff", margin: "0 0 16px", letterSpacing: "-0.02em" }}>
                 Let's Work <span style={{ color: "#3b82f6" }}>Together</span>
               </h2>
-              <p
-                style={{
-                  fontSize: 16,
-                  color: "#64748b",
-                  lineHeight: 1.8,
-                  marginBottom: 48,
-                  maxWidth: 500,
-                  margin: "0 auto 48px",
-                }}
-              >
-                Have a project in mind? I'd love to help you build something
-                great. Reach out and let's talk.
+              <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.8, marginBottom: 48, maxWidth: 500, margin: "0 auto 48px" }}>
+                Have a project in mind? I'd love to help you build something great. Reach out and let's talk.
               </p>
 
               {/* Contact cards */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: 16,
-                  marginBottom: 40,
+              <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 40 }}>
+                <div style={{
+                  background: "#111827", border: "0.5px solid rgba(255,255,255,0.08)",
+                  borderRadius: 16, padding: "1.5rem", cursor: "pointer", transition: "all 0.3s",
                 }}
-              >
-                <div
-                  style={{
-                    background: "#111827",
-                    border: "0.5px solid rgba(255,255,255,0.08)",
-                    borderRadius: 16,
-                    padding: "1.5rem",
-                    cursor: "pointer",
-                    transition: "all 0.3s",
-                  }}
                   onClick={copyEmail}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(59,130,246,0.4)";
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
+                  onMouseOver={e => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.4)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                  onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.transform = "translateY(0)"; }}
                 >
                   <div style={{ fontSize: 28, marginBottom: 10 }}>✉️</div>
-                  <div
-                    style={{
-                      fontSize: 12,
-                      color: "#475569",
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      marginBottom: 6,
-                    }}
-                  >
-                    Email
-                  </div>
-                  <div
-                    style={{ fontSize: 13, color: "#60a5fa", fontWeight: 500 }}
-                  >
+                  <div style={{ fontSize: 12, color: "#475569", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>Email</div>
+                  <div style={{ fontSize: 13, color: "#60a5fa", fontWeight: 500 }}>
                     {copied ? "✓ Copied!" : "prasadrahul0612@gmail.com"}
                   </div>
                 </div>
-                <a
-                  href="https://github.com/Rahul-hzb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    background: "#111827",
-                    border: "0.5px solid rgba(255,255,255,0.08)",
-                    borderRadius: 16,
-                    padding: "1.5rem",
-                    textDecoration: "none",
-                    transition: "all 0.3s",
-                    display: "block",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(59,130,246,0.4)";
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
+                <a href="https://github.com/Rahul-hzb" target="_blank" rel="noopener noreferrer" style={{
+                  background: "#111827", border: "0.5px solid rgba(255,255,255,0.08)",
+                  borderRadius: 16, padding: "1.5rem", textDecoration: "none", transition: "all 0.3s", display: "block",
+                }}
+                  onMouseOver={e => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.4)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                  onMouseOut={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.transform = "translateY(0)"; }}
                 >
                   <div style={{ fontSize: 28, marginBottom: 10 }}>🐙</div>
-                  <div
-                    style={{
-                      fontSize: 12,
-                      color: "#475569",
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      marginBottom: 6,
-                    }}
-                  >
-                    GitHub
-                  </div>
-                  <div
-                    style={{ fontSize: 13, color: "#60a5fa", fontWeight: 500 }}
-                  >
-                    Rahul-hzb
-                  </div>
+                  <div style={{ fontSize: 12, color: "#475569", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>GitHub</div>
+                  <div style={{ fontSize: 13, color: "#60a5fa", fontWeight: 500 }}>Rahul-hzb</div>
                 </a>
               </div>
 
-              <button
-                onClick={() =>
-                  (window.location.href = "mailto:prasadrahul0612@gmail.com")
-                }
-                style={{
-                  background: "#3b82f6",
-                  border: "none",
-                  color: "#fff",
-                  padding: "16px 48px",
-                  borderRadius: 14,
-                  fontSize: 16,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  fontFamily: "inherit",
-                  transition: "all 0.3s",
-                  boxShadow: "0 0 40px rgba(59,130,246,0.3)",
-                  letterSpacing: "0.02em",
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = "translateY(-3px)";
-                  e.target.style.boxShadow = "0 0 60px rgba(59,130,246,0.5)";
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = "translateY(0)";
-                  e.target.style.boxShadow = "0 0 40px rgba(59,130,246,0.3)";
-                }}
+              <button onClick={() => window.location.href = "mailto:prasadrahul0612@gmail.com"} style={{
+                background: "#3b82f6", border: "none", color: "#fff",
+                padding: "16px 48px", borderRadius: 14, fontSize: 16, fontWeight: 600,
+                cursor: "pointer", fontFamily: "inherit", transition: "all 0.3s",
+                boxShadow: "0 0 40px rgba(59,130,246,0.3)", letterSpacing: "0.02em",
+              }}
+                onMouseOver={e => { e.target.style.transform = "translateY(-3px)"; e.target.style.boxShadow = "0 0 60px rgba(59,130,246,0.5)"; }}
+                onMouseOut={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "0 0 40px rgba(59,130,246,0.3)"; }}
               >
                 Send Me an Email →
               </button>
@@ -1352,30 +733,18 @@ export default function Portfolio() {
         </section>
 
         {/* ── FOOTER ── */}
-        <footer
-          style={{
-            background: "#060810",
-            borderTop: "0.5px solid rgba(255,255,255,0.05)",
-            padding: "2rem",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{
-              fontSize: 18,
-              fontWeight: 800,
-              color: "#fff",
-              marginBottom: 8,
-            }}
-          >
+        <footer style={{
+          background: "#060810", borderTop: "0.5px solid rgba(255,255,255,0.05)",
+          padding: "2rem", textAlign: "center",
+        }}>
+          <div style={{ fontSize: 18, fontWeight: 800, color: "#fff", marginBottom: 8 }}>
             Rahul<span style={{ color: "#3b82f6" }}>.</span>
           </div>
-          <div
-            style={{ fontSize: 12, color: "#1e293b", letterSpacing: "0.1em" }}
-          >
+          <div style={{ fontSize: 12, color: "#1e293b", letterSpacing: "0.1em" }}>
             © 2025 Rahul Prasad · Built with React · Designed with ❤️
           </div>
         </footer>
+
       </div>
 
       <style>{`
@@ -1390,6 +759,20 @@ export default function Portfolio() {
         @keyframes blob2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-20px,30px) scale(0.9); } }
         @keyframes blob3 { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.2); } }
         html { scroll-behavior: smooth; }
+        @media (max-width: 768px) {
+          .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center !important; }
+          .hero-buttons { justify-content: center !important; }
+          .hero-social { justify-content: center !important; }
+          .hero-illustration { order: -1; }
+          .hero-illustration > div { width: min(240px, 75vw) !important; height: min(240px, 75vw) !important; }
+          .about-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .contact-grid { grid-template-columns: 1fr !important; }
+          .desktop-nav-links { display: none !important; }
+          .hire-btn { display: none !important; }
+        }
+        #projects { background: #0a0f1a !important; }
+        #projects h2 { color: #fff !important; }
+        #projects p { color: #94a3b8 !important; }
       `}</style>
     </>
   );
